@@ -7,6 +7,7 @@ import "package:online_course_app/widgets/widgets.dart";
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final List<Course> allCourses = getAllCourses();
+  final List<CourseWithRating> allCourseWithRating = getCourseWithRatings();
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +120,12 @@ class HomeScreen extends StatelessWidget {
                   //     color: Color(0xFF3E3A6D),
                   //   ),
                   // );
-                  return const VerticalCourseList();
+                  return VerticalCourseList(
+                    courseDuration: allCourseWithRating[index].courseDuration,
+                    courseImage: allCourseWithRating[index].courseImage,
+                    courseName: allCourseWithRating[index].courseName,
+                    courseRating: allCourseWithRating[index].courseRating,
+                  );
                 },
               ),
             ),
@@ -130,6 +136,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+// to get all the course
 List<Course> getAllCourses() {
   const String assetsLink = "assets/images/";
 
@@ -161,4 +168,34 @@ List<Course> getAllCourses() {
   }
 
   return allCourses;
+}
+
+//to get the course with details
+
+List<CourseWithRating> getCourseWithRatings() {
+  const String imageAssets = "assets/images/";
+
+  List<String> courseName = ["Flutter Developer", "Full Stack Javascript"];
+  List<String> courseDuration = ["8 hours", "6 hours"];
+  List<double> courseRating = [5, 3.5];
+  List<String> courseImage = [
+    "${imageAssets}img_saly24.png",
+    "${imageAssets}img_saly131.png"
+  ];
+
+  List<CourseWithRating> courseWithRating = [];
+
+  for (int i = 0; i < 6; i++) {
+    if (i % 2 == 0) {
+      //even courses
+      courseWithRating.add(CourseWithRating(
+          courseName[0], courseDuration[0], courseRating[0], courseImage[0]));
+    } else {
+      //odd courses
+      courseWithRating.add(CourseWithRating(
+          courseName[1], courseDuration[1], courseRating[1], courseImage[1]));
+    }
+  }
+
+  return courseWithRating;
 }

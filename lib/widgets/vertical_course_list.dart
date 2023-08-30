@@ -1,11 +1,20 @@
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class VerticalCourseList extends StatelessWidget {
-  const VerticalCourseList({super.key});
-
+  final String courseName, courseDuration, courseImage;
+  final double courseRating;
+  const VerticalCourseList(
+      {super.key,
+      required this.courseName,
+      required this.courseDuration,
+      required this.courseRating,
+      required this.courseImage});
   @override
   Widget build(BuildContext context) {
+    // print(courseImage);
+    // print(courseDuration);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: SizedBox(
@@ -46,9 +55,9 @@ class VerticalCourseList extends StatelessWidget {
                   Container(
                     height: 115,
                     width: 115,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/images/img_saly24.png"),
+                        image: AssetImage(courseImage),
                       ),
                     ),
                   ),
@@ -60,7 +69,7 @@ class VerticalCourseList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Flutter Developer",
+                          courseName,
                           style: GoogleFonts.roboto(
                             color: Colors.white,
                             fontSize: 18,
@@ -68,19 +77,55 @@ class VerticalCourseList extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "8 hours",
+                          courseDuration,
                           style: GoogleFonts.roboto(
                             color: Colors.white,
                             fontSize: 12,
                             fontWeight: FontWeight.w300,
                           ),
-                        )
+                        ),
+                        RatingBar.builder(
+                          initialRating: courseRating,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 18,
+                          itemPadding:
+                              const EdgeInsets.symmetric(horizontal: 1.0),
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Color(0xFFF4C465),
+                          ),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          },
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
-            )
+            ),
+            Positioned(
+              bottom: 34,
+              right: 8,
+              child: Container(
+                // height: MediaQuery.of(context).size.width * 0.06,
+                // width: MediaQuery.of(context).size.width * 0.06,
+                height: 29,
+                width: 29,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFEB53A2),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.play_arrow,
+                  size: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),
