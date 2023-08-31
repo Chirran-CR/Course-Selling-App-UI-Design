@@ -1,6 +1,13 @@
-# online_course_app
+# UI design for Online Course App
 
-"A new Flutter project."
+## Figma to Flutter Design
+
+Image:-
+
+![ImageOfUI](assets/images/Screenshot.png)
+## Figma File
+
+`figma.com/community/file/1064411999504285367`
 
 ## Getting Started
 
