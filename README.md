@@ -9,6 +9,9 @@ Image:-
 
 `figma.com/community/file/1064411999504285367`
 
+## Output Video
+![outputvider](https://github.com/Chirran-CR/Course-Selling-App-UI-Design/assets/105117991/7fba445c-2b43-4fc6-af5a-e260a0f34c7f)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
