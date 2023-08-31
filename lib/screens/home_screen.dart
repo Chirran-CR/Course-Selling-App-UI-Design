@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter/rendering.dart";
 import "package:google_fonts/google_fonts.dart";
 import "package:online_course_app/components/components.dart";
+import "package:online_course_app/screens/course_detail_screen.dart";
 import "package:online_course_app/widgets/widgets.dart";
 
 class HomeScreen extends StatelessWidget {
@@ -12,7 +13,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF29274F),
+      // backgroundColor: const Color(0xFF29274F),
+      backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.only(
@@ -35,6 +37,15 @@ class HomeScreen extends StatelessWidget {
                     height: 1, //height of line & gap between line
                   ),
                 ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => const CourseDetailScreen()),
+                //     );
+                //   },
+                // ),
                 Text(
                   "Master Class",
                   style: GoogleFonts.roboto(
@@ -111,6 +122,7 @@ class HomeScreen extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 itemCount: 6,
                 shrinkWrap: true,
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
                   // return Container(
                   //   height: 92,
