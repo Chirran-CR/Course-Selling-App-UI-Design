@@ -12,6 +12,8 @@ Image:-
 ## Output Video
 [vide](https://github.com/Chirran-CR/Course-Selling-App-UI-Design/assets/105117991/7fba445c-2b43-4fc6-af5a-e260a0f34c7f)
 
+file:///home/chirran/coding/Learning/Flutter/UI%20Design/online_course_app/assets/video/vdo.mp4
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
